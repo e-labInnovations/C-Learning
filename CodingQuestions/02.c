@@ -29,17 +29,21 @@ int countBorrowOperations(int num1, int num2) {
         return -1;
 
     int totalBorrows = 0;
+    int isBorrowed = 0;
     while(num1 != 0 && num2 !=0) {
         int num1digit = num1%10;
         int num2digit = num2%10;
+        if(isBorrowed)
+            num1digit--;
         if(num1digit < num2digit) {
             totalBorrows++;
             num1 = num1/10;
             num2 = num2/10;
-            num1--;
+            isBorrowed = 1;
         } else {
             num1 = num1/10;
             num2 = num2/10;
+            isBorrowed = 0;
         }
     }
 
@@ -52,10 +56,13 @@ int main() {
 
     int totalBorrows = countBorrowOperations(number1, number2);
 
+    printf("\nNumber1: %d", number1);
+    printf("\nNumber2: %d", number2);
+
     if(totalBorrows == -1)
-        printf("Subtraction Not possible");
+        printf("\nSubtraction Not possible");
     else
-        printf("Borrow operations needed: %d", totalBorrows);
+        printf("\nBorrow operations needed: %d", totalBorrows);
     
     return 0;
 }

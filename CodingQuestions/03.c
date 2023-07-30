@@ -44,4 +44,6 @@ int main() {
     printf("\nInput: %s", string1);
     char* output = capitalizeOperation(string1, len, c);
     printf("\nOutput: %s", output);
+
+    return 0;
 }

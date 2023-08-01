@@ -18,5 +18,6 @@ int main() {
     printf("First: %d\n", root.value);
     printf("Second: %d\n", root.next->value);
 
+    free(root.next);
     return 0;
 }
